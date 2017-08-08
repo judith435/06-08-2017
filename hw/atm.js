@@ -16,23 +16,22 @@ var cash = {
             alert("theres is NOT enough money in the ATM");
             return;
         }
-        alert('all ok');
-        
-        for (var i = this.denom.length - 1; i  >= 0; i--) {
-
-            sum -= Math.min(sum/this.denom[i], this.bills[i]) * this.denom[i];
-        }
-
-
         var give = [];
-        
-        
-        
+
+        for (var i = this.denom.length - 1; i  >= 0; i--) {
+            let number_of_bills = Math.floor(Math.min(sum/this.denom[i], this.bills[i]));
+            for (let index = 0 ; index < number_of_bills; index++){
+               give.push(this.denom[i]);
+               sum -= this.denom[i];
+               this.bills.splice(i,1);
+            }
+        }
         
         this.putout(give);
+        this.cashBalance(give);
     },
     putout: function(give) { //dispense the bills out 
-        
+      alert ("here are your notes ..." + give );  
     },
     cashBalance: function() { //how much money left in ATM
         
