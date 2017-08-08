@@ -14,7 +14,15 @@ var cash = {
     dispense: function(sum) { // check if can dispense, if so call putout
         if(!this.canDispense(sum)){
             alert("theres is NOT enough money in the ATM");
+            return;
         }
+        alert('all ok');
+        
+        for (var i = this.denom.length - 1; i  >= 0; i--) {
+
+            sum -= Math.min(sum/this.denom[i], this.bills[i]) * this.denom[i];
+        }
+
 
         var give = [];
         
@@ -33,7 +41,7 @@ var cash = {
 
 cash.denom = [50, 100, 200];
 cash.addBills([4, 1, 3]);
-console.log(cash.dispense(720));
+console.log(cash.dispense(window.prompt("enter amount to be withdrawn", 200)));
 
 
 
