@@ -23,7 +23,7 @@ var cash = {
             for (let index = 0 ; index < number_of_bills; index++){
                give.push(this.denom[i]);
                sum -= this.denom[i];
-               this.bills.splice(i,1);
+               this.bills[i]--;
             }
         }
         
