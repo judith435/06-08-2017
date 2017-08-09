@@ -6,10 +6,11 @@ var purchase = {
     setAmountAvailable: function(amount){
         if (!isNaN(parseFloat(amount)) ){
             this.amount_available = amount;
+            console.log("amount available for purchases: " + this.amount_available + " nis");
         }
         else{
                 this.amount_available = 4300;
-                alert("you did not enter a valid amount - you have thus received the default amount of 4,300 nis ");
+                console.log("you did not enter a valid amount - you have thus received the default amount of 4,300 nis");
         }
     }, 
     vat: 0.17,
