@@ -41,7 +41,7 @@ var cash = {
         for (var i = this.denom.length - 1; i  >= 0; i--) {
             let number_of_bills = Math.floor(Math.min(this.amount_to_be_withdrawn/this.denom[i], this.bills[i]));
             for (let index = 0 ; index < number_of_bills; index++){
-               bills_to_be_given.push(this.denom[i]);
+               bills_to_be_given.push(this.denom[i] + " nis ");
                this.amount_to_be_withdrawn -= this.denom[i];
                this.bills[i]--;
             }
